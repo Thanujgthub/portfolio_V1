@@ -1,3 +1,4 @@
+import { initCinema } from './cinema.js';
 import { profile, projects, skills, milestones } from './content.js';
 
 const $ = (selector) => document.querySelector(selector);
@@ -26,6 +27,15 @@ $('#project-grid').innerHTML = projects.map(p => `<article class="project-card r
   <a href="${p.github}" ${external}>Source code ↗</a><button data-project="${p.id}">Read more +</button></div></div></article>`).join('');
 
 $('#timeline').innerHTML = milestones.map(m => `<article class="timeline-row reveal"><div class="timeline-date">${escapeHTML(m.date)}</div><div class="timeline-main"><h3>${m.href ? `<a href="${m.href}" ${external}>${escapeHTML(m.title)} <span style="font-size:.6em">↗</span></a>` : escapeHTML(m.title)}</h3><p class="place">${escapeHTML(m.place)}</p><p>${escapeHTML(m.text)}</p></div><span class="timeline-type">${escapeHTML(m.type)}</span></article>`).join('');
+
+// Repeated cards make a seamless loop; each opens the same project details.
+$('#scene-projects').innerHTML = [...projects, ...projects, ...projects].map((p, i) => `
+  <button class="sight-card" data-project="${p.id}" aria-label="Explore ${escapeHTML(p.name)}">
+    <span class="sight-kicker">${escapeHTML(p.category)} · ${p.number}</span>
+    <img class="sight-pin" src="./assets/pin-${i % projects.length % 3 + 1}.webp" alt="" width="68" height="68">
+    <span class="sight-name">${escapeHTML(p.name)}</span>
+    <span class="sight-description">${escapeHTML(p.subtitle)}</span>
+  </button>`).join('');
 
 // Native dialog supplies keyboard trapping, Escape support, and focus restoration.
 const dialog = $('#project-dialog');
@@ -113,71 +123,8 @@ $('#copy-email').addEventListener('click', async () => {
 });
 $('#year').textContent = new Date().getFullYear();
 
-// Scroll follows the reader: one animation frame per scroll update, no scroll hijacking.
-const media = matchMedia('(prefers-reduced-motion: reduce)');
-let customReduced = null;
-try { const saved = localStorage.getItem('thanuj-reduced-motion'); if (saved !== null) customReduced = saved === 'true'; } catch {}
-let reduced = customReduced ?? media.matches;
-const cinema = $('.cinema');
-const stage = $('.cinema-stage');
-const heroTitle = $('.hero-title');
-const heroIntro = $('.hero-intro');
-const message = $('.cinema-message');
-const left = $('.frame-left'), right = $('.frame-right'), bridge = $('.bridge');
-const shade = $('.scene-shade'), mountains = $('.mountains'), village = $('.village');
-let scheduled = false;
-let stageHeight = stage.clientHeight;
-let scrollRange = Math.max(1, cinema.offsetHeight - stageHeight);
-const clamp = (v, a=0, b=1) => Math.min(b, Math.max(a,v));
-function drawScene() {
-  scheduled = false;
-  const y = window.scrollY;
-  $('#header').classList.toggle('scrolled', y > 65);
-  if (y > cinema.offsetHeight + stageHeight) return;
-  const p = reduced ? 0 : clamp(y / scrollRange);
-  const reveal = clamp((p - .24) / .4);
-  const fade = 1 - clamp(p / .37);
-  heroTitle.style.transform = `translateY(${-p*110}px)`;
-  heroTitle.style.opacity = fade;
-  heroIntro.style.opacity = 1-clamp(p/.28);
-  heroIntro.style.pointerEvents = p > .28 ? 'none' : '';
-  heroIntro.inert = p > .28;
-  left.style.transform = `translateX(${-50-p*45}%) scale(${1+p*.35})`;
-  right.style.transform = `translateX(${-50+p*45}%) scale(${1+p*.35})`;
-  bridge.style.transform = `translate(-50%,${p*100}%) scale(${1.02+p*1.4})`;
-  bridge.style.opacity = 1-clamp((p-.2)/.55);
-  mountains.style.transform = `translate(-50%,${p*8}%) scale(${.9+p*.12})`;
-  village.style.transform = `translate(-50%,${p*7}%) scale(${.86+p*.08})`;
-  message.style.opacity = reveal;
-  message.style.transform = `translateY(${(1-reveal)*25}px)`;
-  message.setAttribute('aria-hidden', String(reveal < .5));
-  shade.style.backgroundColor = `rgba(9,20,14,${p*.61})`;
-}
-function requestDraw() { if (!scheduled) { scheduled = true; requestAnimationFrame(drawScene); } }
-function applyMotion() {
-  document.documentElement.dataset.motion = reduced ? 'reduced' : 'full';
-  stageHeight = stage.clientHeight;
-  scrollRange = Math.max(1, cinema.offsetHeight - stageHeight);
-  $('#motion-toggle').setAttribute('aria-pressed', String(reduced));
-  $('#motion-toggle').setAttribute('aria-label', reduced ? 'Enable full motion' : 'Reduce motion');
-  $('#motion-toggle').innerHTML = reduced ? 'Motion off <span>○</span>' : 'Motion on <span>◉</span>';
-  requestDraw();
-}
-$('#motion-toggle').addEventListener('click', () => {
-  reduced = !reduced;
-  customReduced = reduced;
-  try { localStorage.setItem('thanuj-reduced-motion', String(reduced)); } catch {}
-  applyMotion();
-});
-media.addEventListener('change', () => { if (customReduced === null) { reduced = media.matches; applyMotion(); } });
-window.addEventListener('scroll', requestDraw, { passive: true });
-window.addEventListener('resize', () => {
-  stageHeight = stage.clientHeight;
-  scrollRange = Math.max(1, cinema.offsetHeight - stageHeight);
-  if (innerWidth > 700) closeMenu();
-  requestDraw();
-}, { passive: true });
-applyMotion();
+initCinema();
+window.addEventListener('resize', () => { if (innerWidth > 700) closeMenu(); }, { passive: true });
 
 // Content remains visible if JavaScript or IntersectionObserver is unavailable.
 if ('IntersectionObserver' in window) {

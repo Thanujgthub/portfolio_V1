@@ -1,0 +1,7 @@
+.git
+.openai
+.env*
+.vercel
+fetch-assets.py
+SOURCES.md
+server.mjs

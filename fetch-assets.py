@@ -6,7 +6,7 @@ from PIL import Image
 
 out = Path(__file__).parent / "dist" / "assets"
 base = "https://portfolio2-seven-orcin.vercel.app"
-images = ["sky", "back-four", "back-bazaar", "splitframe-left", "splitframe-right", "bridge"]
+images = ["sky", "back-four", "back-bazaar", "splitframe-left", "splitframe-right", "bridge", "frame-two", "pin-1", "pin-2", "pin-3"]
 fonts = {
     "fraunces.woff2": "fraunces-latin-wght-normal-ukD16Tqj.woff2",
     "inter-tight.woff2": "inter-tight-latin-wght-normal-DX-nOvPD.woff2",

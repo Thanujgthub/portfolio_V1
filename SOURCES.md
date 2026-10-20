@@ -30,3 +30,5 @@ Requested reference: https://portfolio2-seven-orcin.vercel.app/
 Layered scenic artwork is from the reference's publicly served `/art/` directory, reused for the requested visual replication. WebP versions are resized/compressed for this site. Typography uses its publicly served Fraunces, Inter Tight, Syne, and JetBrains Mono font assets.
 
 Website markup, styles, interactions, project illustrations, and personalized copy were implemented for this portfolio.
+
+The cinematic sequence follows the reference's observed 5,000px sticky scroll, smoothstep windows, layer transforms, blur, and project-card entrance. `dist/cinema.js` keeps the motion separate from personal content. The additional `frame-two` and three `pin` images also come from the reference. Reduced-motion support, pause controls, keyboard accessibility, and project dialogs are integrated with this portfolio.

@@ -9,19 +9,21 @@
   <meta property="og:title" content="Thanuj — AI Engineer">
   <meta property="og:description" content="Curiosity into code. AI, machine learning, and full-stack projects by Thanuj.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://thanuj-ai-portfolio.bushysquid35.chatgpt.site">
-  <meta property="og:image" content="https://thanuj-ai-portfolio.bushysquid35.chatgpt.site/assets/social.webp">
+  <meta property="og:url" content="https://thanuj-ai-portfolio.vercel.app">
+  <meta property="og:image" content="https://thanuj-ai-portfolio.vercel.app/assets/social.webp">
+  <link rel="canonical" href="https://thanuj-ai-portfolio.vercel.app">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
   <link rel="preload" href="./assets/fraunces.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="./assets/sky.webp" as="image">
   <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./cinema.css">
   <script type="module" src="./app.js"></script>
 </head>
 <body>
   <a class="skip-link" href="#work">Skip to selected work</a>
   <header class="site-header" id="header">
-    <a class="wordmark" href="#home" aria-label="Thanuj, home">Thanuj<span class="wordmark-star">✳</span></a>
+    <a class="wordmark" href="#home" aria-label="Thanuj, home">Thanuj</a>
     <nav aria-label="Main navigation">
       <a href="#intro">Intro</a><a href="#work">Work</a><a href="#about">About</a><a href="#skills">Skills</a>
     </nav>
@@ -34,11 +36,17 @@
   <main>
     <section class="cinema" id="home" aria-label="Thanuj's cinematic introduction">
       <div class="cinema-stage">
-        <div class="world" aria-hidden="true">
+        <div class="world">
           <img class="scene sky" src="./assets/sky.webp" alt="" fetchpriority="high" width="2400" height="1350">
+          <div class="back-stack">
           <img class="scene mountains" src="./assets/back-four.webp" alt="" width="2400" height="1350">
+          <section class="sights-slider" aria-label="Featured projects" aria-hidden="true" inert>
+            <div class="sights-track" id="scene-projects"></div>
+          </section>
           <img class="scene village" src="./assets/back-bazaar.webp" alt="" width="2400" height="1350">
+          </div>
           <img class="scene bridge" src="./assets/bridge.webp" alt="" width="2400" height="1350">
+          <img class="scene frame-two" src="./assets/frame-two.webp" alt="">
           <img class="scene frame-left" src="./assets/splitframe-left.webp" alt="" width="2400" height="1350">
           <img class="scene frame-right" src="./assets/splitframe-right.webp" alt="" width="2400" height="1350">
           <div class="scene-shade"></div>
@@ -52,11 +60,24 @@
           <div class="hero-tags"><span>AI & Machine Learning</span><span>MERN & Full-stack</span></div>
           <a class="hero-link" href="#work">EXPLORE MY WORK <span>↗</span></a>
         </div>
-        <div class="cinema-message" aria-hidden="true">
-          <p class="eyebrow">A LITTLE CURIOSITY GOES A LONG WAY</p>
-          <h2>Ideas are a start.<br><em>Building makes them real.</em></h2>
-          <p>From reading handwritten Telugu to grounding AI in real documents.<br>I learn by making things that work.</p>
+        <section class="story-panel story-work" aria-hidden="true" inert>
+          <h2>I turn curious ideas into products people can use.</h2>
+          <p>From reading handwritten Telugu to grounding AI in real documents, I build practical software and learn by making it work.</p>
+          <dl class="scene-facts"><div><dt>05</dt><dd>Selected projects</dd></div><div><dt>AI + Web</dt><dd>From model<br>to interface</dd></div></dl>
+        </section>
+        <section class="story-panel story-about" aria-hidden="true" inert>
+          <p class="panel-kicker">ABOUT / 02</p>
+          <h2>Always learning.<br>Always making.</h2>
+          <p>I’m Thanuj, an AI &amp; ML student at CMR College of Engineering &amp; Technology. Building with AI, MERN, Codex, and Astra — and looking for my next opportunity.</p>
+          <a class="scene-link" href="#skills">Explore my skills ↗</a>
+        </section>
+        <div class="sights-controls" aria-hidden="true" inert>
+          <button class="sight-nav" id="scene-prev" aria-label="Previous featured project">←</button>
+          <button class="sight-nav" id="scene-next" aria-label="Next featured project">→</button>
+          <button class="sight-nav scene-pause" id="scene-pause" aria-label="Pause project carousel" aria-pressed="false">Ⅱ</button>
+          <a class="scene-link" href="#work">All projects ↗</a>
         </div>
+        <div class="scene-progress" aria-hidden="true"></div>
         <div class="hero-bottom">
           <a href="#intro" class="scroll-cue"><span class="scroll-line"></span>SCROLL TO EXPLORE</a>
           <span class="hero-location">HYDERABAD, INDIA <span>17.38° N / 78.49° E</span></span>
@@ -99,7 +120,7 @@
         </div>
         <div class="focus-grid reveal">
           <article><span class="focus-icon">⌁</span><span class="eyebrow">01 / INTELLIGENCE</span><h3>AI & Machine Learning</h3><p>OCR, model adaptation, evaluation, and turning predictions into useful experiences.</p></article>
-          <article><span class="focus-icon">✳</span><span class="eyebrow">02 / CONNECTION</span><h3>RAG & AI Agents</h3><p>Retrieval, language models, source context, and connected automation workflows.</p></article>
+          <article><span class="focus-icon">◇</span><span class="eyebrow">02 / CONNECTION</span><h3>RAG & AI Agents</h3><p>Retrieval, language models, source context, and connected automation workflows.</p></article>
           <article><span class="focus-icon">⌘</span><span class="eyebrow">03 / ENGINEERING</span><h3>MERN & Full-stack</h3><p>React, Node.js, Express, MongoDB, and Python APIs—from interface to backend.</p></article>
           <article><span class="focus-icon">↗</span><span class="eyebrow">04 / EXPLORATION</span><h3>Build to understand</h3><p>Working with Codex and Astra to prototype, review, and keep moving from idea to implementation.</p></article>
         </div>
@@ -130,11 +151,11 @@
     <div class="ticker" aria-hidden="true"><div>ARTIFICIAL INTELLIGENCE <span>✦</span> FULL-STACK DEVELOPMENT <span>✦</span> ALWAYS BUILDING <span>✦</span> THANUJ <span>✦</span> ARTIFICIAL INTELLIGENCE <span>✦</span> FULL-STACK DEVELOPMENT <span>✦</span> ALWAYS BUILDING <span>✦</span> THANUJ <span>✦</span></div></div>
     <section class="contact-section section-pad" id="contact">
       <span class="availability"><i></i> OPEN TO JOBS & INTERNSHIPS</span>
-      <h2 class="reveal">Let’s build<br><em>what comes next.</em><span class="contact-star" aria-hidden="true">✳</span></h2>
+      <h2 class="reveal">Let’s build<br><em>what comes next.</em></h2>
       <p>I’m looking for opportunities to learn, contribute, and build<br>useful AI products with a thoughtful team.</p>
       <div class="email-row"><a href="mailto:ktsbrahma@gmail.com">ktsbrahma@gmail.com <span>↗</span></a><button id="copy-email" aria-label="Copy email address" title="Copy email address"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/></svg></button></div>
       <div id="copy-status" role="status"></div>
-      <footer><a class="wordmark" href="#home">Thanuj<span class="wordmark-star">✳</span></a><p>© <span id="year">2026</span> Thanuj · Hyderabad, India</p><div><a href="https://github.com/Thanujgthub" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a href="https://www.linkedin.com/in/thanuj-ccbp" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a href="#home" aria-label="Back to top">↑</a></div></footer>
+      <footer><a class="wordmark" href="#home">Thanuj</a><p>© <span id="year">2026</span> Thanuj · Hyderabad, India</p><div><a href="https://github.com/Thanujgthub" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a href="https://www.linkedin.com/in/thanuj-ccbp" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a href="#home" aria-label="Back to top">↑</a></div></footer>
     </section>
   </main>
   <dialog id="project-dialog" aria-labelledby="dialog-title">
