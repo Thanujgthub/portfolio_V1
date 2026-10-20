@@ -1,0 +1,92 @@
+// Edit this file to update projects, skills, and milestones.
+export const profile = {
+  name: 'Thanuj',
+  fullName: 'Thanuj Sai Brahma Kodapaka',
+  role: 'AI Engineer',
+  email: 'ktsbrahma@gmail.com',
+  github: 'https://github.com/Thanujgthub',
+  linkedin: 'https://www.linkedin.com/in/thanuj-ccbp',
+  location: 'Hyderabad, India',
+};
+
+export const projects = [
+  {
+    id: 'akshara', number: '01', name: 'Akshara OCR', category: 'Machine learning',
+    subtitle: 'Giving Telugu handwriting a digital voice.',
+    description: 'An IndicOCR adaptation and review studio for Telugu handwriting, connecting model fine-tuning, careful evaluation, and a usable transcription workflow.',
+    detail: 'A completed LoRA adaptation study with 25,000 training, 5,000 validation, and 3,000 held-out test word crops. The selected adapter achieved 76.20% exact-word match, compared with 66.43% for the original model. The studio supports reviewing, editing, and exporting Telugu text. The public website contains the studio and study results; model inference requires the separately configured GPU service.',
+    tags: ['Python', 'PyTorch', 'LoRA', 'Computer vision'],
+    github: 'https://github.com/Thanujgthub/akshara-ocr',
+    live: 'https://akshara-ocr-seven.vercel.app',
+    accent: '#d5b993', visual: 'ocr', status: 'Completed adaptation study',
+    metric: '76.20%', metricLabel: 'Held-out exact-word match',
+  },
+  {
+    id: 'campus', number: '02', name: 'CampusAI', category: 'Retrieval-augmented generation',
+    subtitle: 'College information. Grounded in sources.',
+    description: 'A document-grounded college assistant that brings retrieval, streaming answers, source citations, and student/admin workflows together.',
+    detail: 'Official documents are parsed, chunked, embedded, and retrieved through PostgreSQL and pgvector. A FastAPI backend serves a Next.js interface with streamed responses and traceable citations. The project includes document administration, role-based access, and a fallback for unsupported questions.',
+    tags: ['RAG', 'FastAPI', 'Next.js', 'pgvector'],
+    github: 'https://github.com/Thanujgthub/CampusAI',
+    live: 'https://campus-ai-dun.vercel.app',
+    accent: '#94b9a5', visual: 'rag', status: 'AI application',
+    metric: 'RAG', metricLabel: 'Answers with source context',
+  },
+  {
+    id: 'agentflow', number: '03', name: 'AgentFlow', category: 'Agentic AI · MERN',
+    subtitle: 'From a prompt to a connected workflow.',
+    description: 'A visual automation project with a multi-agent execution pipeline, a React Flow canvas, and real-time execution updates.',
+    detail: 'A five-stage architecture separates planning, execution, validation, recovery, and monitoring. The repository combines a Next.js frontend with an Express backend, MongoDB, and BullMQ/Redis. Gemini and OpenRouter integrations support prompt-to-workflow generation; local fallback modes support development without external services.',
+    tags: ['Next.js', 'Express', 'MongoDB', 'AI agents'],
+    github: 'https://github.com/Thanujgthub/Agentic_AI',
+    live: null,
+    accent: '#a9a6d3', visual: 'agents', status: 'Source available',
+    metric: '05', metricLabel: 'Specialized agent stages',
+  },
+  {
+    id: 'subnetscope', number: '04', name: 'SubnetScope', category: 'Full-stack · Visualization',
+    subtitle: 'Making computer networks visible.',
+    description: 'An interactive networking field guide with a 3D topology, IPv4 subnet calculations, and an explainable TCP profiling simulation.',
+    detail: 'Built with Next.js, TypeScript, and native WebGL. The public site is an educational simulator with working CIDR calculations, filters, and a replayable port-profiling lab. A separate Node.js utility supports authorized local lab tests. The public website does not scan visitors’ networks.',
+    tags: ['TypeScript', 'Next.js', 'WebGL', 'Node.js'],
+    github: 'https://github.com/Thanujgthub/subnet-reconnaissance-visualizer',
+    live: 'https://subnet-reconnaissance-visualizer.vercel.app',
+    accent: '#8baebf', visual: 'network', status: 'Interactive learning tool',
+    metric: 'IPv4', metricLabel: 'An explorable networking lab',
+  },
+  {
+    id: 'travel', number: '05', name: 'AI Travel Guide', category: 'Generative AI · Voice',
+    subtitle: 'A new way to listen to a place.',
+    description: 'An audio travel companion that combines generated landmark guides with text-to-speech for exploring Indian destinations.',
+    detail: 'A Flask API connects Gemini-generated travel content to Murf text-to-speech, with a web interface for choosing and exploring landmarks. It is an experiment in bringing language generation and voice into an everyday experience.',
+    tags: ['Gemini', 'Flask', 'Murf TTS', 'JavaScript'],
+    github: 'https://github.com/Thanujgthub/travel-guide',
+    live: 'https://travel-guide-five-sepia.vercel.app',
+    accent: '#d3a78e', visual: 'voice', status: 'AI product exploration',
+    metric: 'Voice', metricLabel: 'Stories beyond the screen',
+  },
+];
+
+export const skills = [
+  { name: 'Python', group: 'AI / ML', x: 22, y: 21, text: 'The foundation of my model experiments, data workflows, and AI backends.' },
+  { name: 'PyTorch & LoRA', group: 'AI / ML', x: 43, y: 13, text: 'Model adaptation, GPU experiments, and held-out evaluation in Akshara OCR.' },
+  { name: 'Computer vision', group: 'AI / ML', x: 65, y: 20, text: 'Turning Telugu word images into reviewable text with an adapted OCR model.' },
+  { name: 'RAG & embeddings', group: 'AI / ML', x: 78, y: 39, text: 'Document chunking, vector retrieval, and source-grounded answers in CampusAI.' },
+  { name: 'Gemini & AI agents', group: 'AI / ML', x: 30, y: 41, text: 'Connecting language models to applications, tools, and multi-stage workflows.' },
+  { name: 'React & Next.js', group: 'Full-stack', x: 17, y: 62, text: 'Interfaces for AI products, dashboards, and interactive learning experiences.' },
+  { name: 'Node.js & Express', group: 'Full-stack', x: 39, y: 77, text: 'APIs, workflow execution, and real-time events in the AgentFlow backend.' },
+  { name: 'MongoDB & SQL', group: 'Full-stack', x: 64, y: 72, text: 'Application data with MongoDB and relational/vector search with PostgreSQL and pgvector.' },
+  { name: 'TypeScript', group: 'Full-stack', x: 83, y: 63, text: 'Typed interfaces and application logic, including SubnetScope’s networking tools.' },
+  { name: 'FastAPI & Flask', group: 'Full-stack', x: 54, y: 42, text: 'Python services that connect models, retrieval pipelines, and web interfaces.' },
+  { name: 'Git & GitHub', group: 'Tools & practice', x: 16, y: 86, text: 'Version control, public project documentation, and continuous iteration.' },
+  { name: 'Codex & Astra', group: 'Tools & practice', x: 82, y: 86, text: 'AI-assisted development for exploring ideas, building features, and reviewing implementations.' },
+  { name: 'Evaluation', group: 'Tools & practice', x: 47, y: 92, text: 'Comparing baselines, maintaining separate validation and test data, and documenting model limitations.' },
+];
+
+export const milestones = [
+  { date: '2026', type: 'Applied ML', title: 'Akshara OCR adaptation study', place: 'Independent project · GitHub', text: 'Completed a Telugu handwriting adaptation study and published the evaluation, model release, and review studio.', href: 'https://github.com/Thanujgthub/akshara-ocr' },
+  { date: '2026', type: 'Hackathon', title: 'POWERATHON 2K26', place: 'Anurag University', text: 'Participated in a 30-hour hackathon, building and debugging with a team while learning from peers and mentors.', href: 'https://www.linkedin.com/in/thanuj-ccbp' },
+  { date: 'Workshop', type: 'Hands-on learning', title: 'LevelX × NxtWave AI workshop', place: 'Hyderabad', text: 'Built an AI-powered application in a hands-on workshop and received a Certificate of Participation.', href: 'https://www.linkedin.com/in/thanuj-ccbp' },
+  { date: '2024 — 2028', type: 'Education', title: 'B.Tech in Artificial Intelligence & Machine Learning', place: 'CMR College of Engineering & Technology · Hyderabad', text: 'Building a foundation in computing and machine learning, alongside practical projects and continuous experimentation.', href: null },
+  { date: '2024 — 2028', type: 'Learning journey', title: 'NxtWave CCBP 4.0 Academy', place: 'NxtWave', text: 'Developing full-stack skills through structured learning, coding practice, milestone projects, and peer collaboration.', href: 'https://www.linkedin.com/in/thanuj-ccbp' },
+];
